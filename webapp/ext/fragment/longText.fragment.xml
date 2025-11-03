@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+    <IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding" visible="{= ${KHide} === 'X' ? false : true }">
+        <items>
+            <IconTabFilter text="Basic Text" key="BasicText" visible="{= ${KHide} === 'X' ? false : true }">
+                <VBox >
+                    <TextArea growing="true" id="BasicTxt-1" growingMaxLines="7" width="100%" value="{basic_txt}" editable="{LongTextShow}" visible="{= ${reqtyp} === 'EX' ? false : true }"/>
+                    <TextArea growing="true" id="BasicTxt-2" growingMaxLines="7" width="100%" value="{basic_longtext}" editable="{LongTextShow}" visible="{= ${reqtyp} === 'EX' ? true : false }"/>
+                </VBox>
+            </IconTabFilter>
+            <IconTabFilter text="Sales Text" key="salestext" visible="{= ${VHide} === 'X' ? false : true }">
+                <TextArea growing="true" growingMaxLines="7" width="100%" value="{sales_txt}" editable="{LongTextShow}" />
+
+            </IconTabFilter>
+            <IconTabFilter text="Purchasing Text" key="purchasingtext" visible="{= ${EHide} === 'X' ? false : true }">
+                <TextArea growing="true" growingMaxLines="7" width="100%" value="{po_txt}" editable="{LongTextShow}" />
+
+            </IconTabFilter>
+        </items>
+    </IconTabBar>
+</core:FragmentDefinition>

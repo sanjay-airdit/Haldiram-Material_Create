@@ -1,0 +1,83 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "zmaterialcreate.materialcreate.custompage",
+        "type": "component",
+        "embeddedBy": "../",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{compTitle}}",
+        "description": "{{compDescription}}"
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_fiori_3"
+        ]
+    },
+    "sap.ui5": {
+        "resources": {
+            "js": [],
+            "css": []
+        },
+        "dependencies": {
+            "minUI5Version": "1.133.0",
+            "libs": {
+                "sap.ui.core": {
+                    "lazy": false
+                },
+                "sap.m": {}
+            },
+            "components": {}
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "zmaterialcreate.materialcreate.customComponents.comp1.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": true,
+                "viewReuse": false
+            },
+            "routes": [
+                
+            ],
+            "targets": {
+                
+            }
+        },
+        "rootView": {
+            "viewName": "zmaterialcreate.materialcreate.customComponents.comp1.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

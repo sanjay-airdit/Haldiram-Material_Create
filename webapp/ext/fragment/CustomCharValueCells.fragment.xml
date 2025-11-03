@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<VBox >
+		<Input value="{charac_value}" showValueHelp="true" valueHelpRequest="onClickCharValueVH" visible="{ui>/editable}"></Input>
+		<Text text="{charac_value}" visible="{= ${ui>/editable} !== true }"/>
+	</VBox>
+</core:FragmentDefinition>

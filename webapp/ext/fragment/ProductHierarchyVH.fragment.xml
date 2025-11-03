@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core">
+	<Dialog title="Product Heirarchy" verticalScrolling="false" draggable="true" resizable="true" contentHeight="75%" contentWidth="50%">
+		<content>
+			<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+				<Tree items="{path: 'PHModel>/data', parameters : {
+		                countMode: 'Inline'
+		            }}" mode="SingleSelectMaster" selectionChange="onSelectPH">
+					<StandardTreeItem title="{PHModel>Description}"/>
+				</Tree>
+			</ScrollContainer>
+		</content>
+		<endButton>
+			<Button text="Cancel" type="Ghost" class="customSegmentedBtn" press="onClosePHDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

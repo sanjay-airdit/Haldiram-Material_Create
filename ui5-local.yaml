@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: zmaterialcreate.materialcreate
+type: application
+framework:
+  name: SAPUI5
+  version: 1.131.1
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.ushell
+    - name: sap.f
+    - name: sap.ui.comp
+    - name: sap.ui.generic.app
+    - name: sap.suite.ui.generic.template
+    - name: themelib_sap_horizon
+server:
+  customMiddleware:
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: zmaterialcreate.materialcreate
+        ui5Theme: sap_horizon
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        backend:
+          - scp: true
+            path: /sap
+            url: http://vhhdnds4ci.sap.haldiram.com:44300
+            destination: haldiram
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/ZP_QU_DG_MARA_MASSREQ_BND
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/ZQU_DG_WF_GETLOG_SRV_01
+            metadataPath: ./webapp/localService/ZQU_DG_WF_GETLOG_SRV_01/metadata.xml
+            mockdataPath: ./webapp/localService/ZQU_DG_WF_GETLOG_SRV_01/data
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/ZP_QU_DG_WORKITM_RQSTS_SRV
+            metadataPath: ./webapp/localService/ZP_QU_DG_WORKITM_RQSTS_SRV/metadata.xml
+            mockdataPath: ./webapp/localService/ZP_QU_DG_WORKITM_RQSTS_SRV/data
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/ZQU_DG_CLASSIFICATION_SRV
+            metadataPath: ./webapp/localService/ZQU_DG_CLASSIFICATION_SRV/metadata.xml
+            mockdataPath: ./webapp/localService/ZQU_DG_CLASSIFICATION_SRV/data
+            generateMockData: true
+        annotations:
+          - localPath: ./webapp/localService/mainService/ZP_QU_DG_MARA_MASSREQ_BND_VAN.xml
+            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZP_QU_DG_MARA_MASSREQ_BND_VAN',Version='0001')/$value/

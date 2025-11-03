@@ -1,0 +1,692 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "zmaterialcreate.materialcreate",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.16.1",
+      "toolsId": "30bb74d1-3398-489f-8278-b6caed91fb9b"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZP_QU_DG_MARA_MASSREQ_BND/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "ZP_QU_DG_MARA_MASSREQ_BND_VAN",
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZP_QU_DG_MYTASK_BND_SRV": {
+        "uri": "/sap/opu/odata/sap/ZP_QU_DG_MYTASK_BND/",
+        "type": "OData",
+        "settings": {
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZP_QU_DG_MARA_MASSREQ_BND_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZP_QU_DG_MARA_MASSREQ_BND_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/mainService/ZP_QU_DG_MARA_MASSREQ_BND_VAN.xml"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "ZQU_DG_WF_GETLOG_SRV_01": {
+        "uri": "/sap/opu/odata/sap/ZQU_DG_WF_GETLOG_SRV_01/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/ZQU_DG_WF_GETLOG_SRV_01/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZP_QU_DG_WORKITM_RQSTS_SRV": {
+        "uri": "/sap/opu/odata/sap/ZP_QU_DG_WORKITM_RQSTS_SRV/",
+        "type": "OData",
+        "settings": {
+          "localUri": "localService/ZP_QU_DG_WORKITM_RQSTS_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZQU_DG_CLASSIFICATION_SRV": {
+        "uri": "/sap/opu/odata/sap/ZQU_DG_CLASSIFICATION_SRV/",
+        "type": "OData",
+        "settings": {
+          "localUri": "localService/ZQU_DG_CLASSIFICATION_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZQU_DG_ATTACHMENT_COMMENT_SRV": {
+        "uri": "/sap/opu/odata/sap/ZQU_DG_ATTACHMENT_COMMENT_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/ZQU_DG_ATTACHMENT_COMMENT_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZC_QU_DG_MATCLASSUNION_CDS": {
+        "uri": "/sap/opu/odata/sap/ZC_QU_DG_MATCLASSUNION_CDS/",
+        "type": "OData",
+        "settings": {
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZC_QU_DG_MATERIAL_IMAGE_SRV": {
+        "uri": "/sap/opu/odata/sap/ZC_QU_DG_MATERIAL_IMAGE_SRV/",
+        "type": "OData",
+        "settings": {
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZP_QU_DG_MARA_MASSREQ": {
+        "uri": "/sap/opu/odata/sap/ZC_QU_DG_MATERIAL_IMAGE_SRV/",
+        "type": "OData",
+        "settings": {
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZP_QU_DG_PRO_STEP_ROLE_CDS": {
+        "uri": "/sap/opu/odata/sap/ZP_QU_DG_PRO_STEP_ROLE_CDS/",
+        "type": "OData",
+        "settings": {
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZI_QU_DG_REQLOG_QRY_CDS": {
+        "uri": "/sap/opu/odata/sap/ZI_QU_DG_REQLOG_QRY_CDS/",
+        "type": "OData",
+        "settings": {
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "CV_ATTACHMENT_SRV": {
+        "uri": "/sap/opu/odata/sap/CV_ATTACHMENT_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/CV_ATTACHMENT_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.131.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.f": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.suite.ui.generic.template": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "zmaterialcreate.materialcreate.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "ZP_QU_DG_MYTASK_BND": {
+        "dataSource": "ZP_QU_DG_MYTASK_BND_SRV",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "WorkFlowModel": {
+        "dataSource": "ZQU_DG_WF_GETLOG_SRV_01",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "FileUploadModel": {
+        "dataSource": "ZC_QU_DG_MATERIAL_IMAGE_SRV",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "MyTask": {
+        "dataSource": "ZP_QU_DG_WORKITM_RQSTS_SRV",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "ZQU_DG_ATTACHMENT_COMMENT_SRV": {
+        "dataSource": "ZQU_DG_ATTACHMENT_COMMENT_SRV",
+        "preload": true,
+        "settings": {}
+      },
+      "ZQU_DG_CLASSIFICATION_SRV": {
+        "dataSource": "ZQU_DG_CLASSIFICATION_SRV",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "SearchMaterialByChar": {
+        "dataSource": "ZC_QU_DG_MATCLASSUNION_CDS",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "ZP_QU_DG_PRO_STEP_ROLE_CDS": {
+        "dataSource": "ZP_QU_DG_PRO_STEP_ROLE_CDS",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "ZI_QU_DG_REQLOG_QRY_CDS": {
+        "dataSource": "ZI_QU_DG_REQLOG_QRY_CDS",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "CV_ATTACHMENT_SRV": {
+        "dataSource": "CV_ATTACHMENT_SRV",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/styles.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {},
+      "routes": [],
+      "targets": {}
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+            "controllerName": "zmaterialcreate.materialcreate.ext.controller.ObjectPageExt",
+            "sap.ui.generic.app": {
+              "ZP_QU_DG_MARA_MASSREQ": {
+                "EntitySet": "ZP_QU_DG_MARA_MASSREQ",
+                "Header": {
+                  "Actions": {
+                    "idShowchanges": {
+                      "id": "idShowchangesButton",
+                      "text": "Show Changes",
+                      "press": "onShowChanges",
+                      "requiresSelection": false,
+                      "applicablePath": "CustomShowChangesButton"
+                    },
+                    "idDuplicateCheck": {
+                      "id": "idDuplicateCheckButton",
+                      "text": "Duplicate Check",
+                      "press": "onDuplicateCheck",
+                      "requiresSelection": false
+                    },
+                    "idUpdate": {
+                      "id": "idUpdateButton",
+                      "text": "Update",
+                      "press": "onUpdate",
+                      "requiresSelection": false,
+                      "applicablePath": "CustomUpdateButton"
+                    },
+                    "idDelete": {
+                      "id": "idDeleteButton",
+                      "text": "Delete",
+                      "press": "onDelete",
+                      "requiresSelection": false,
+                      "applicablePath": "CustomUpdateButton"
+                    },
+                    "Approve": {
+                      "id": "Approve",
+                      "text": "Approve",
+                      "press": "onApprove",
+                      "requiresSelection": false,
+                      "determining": true,
+                      "applicablePath": "ApproveButton"
+                    },
+                    "Reject": {
+                      "id": "Reject",
+                      "text": "Reject",
+                      "press": "onReject",
+                      "requiresSelection": false,
+                      "determining": true,
+                      "applicablePath": "ApproveButton"
+                    },
+                    "Submit": {
+                      "id": "Submit",
+                      "text": "Submit",
+                      "press": "onSubmit",
+                      "requiresSelection": false,
+                      "determining": true,
+                      "applicablePath": "SubmitButton"
+                    },
+                    "ShowLog": {
+                      "id": "ShowLog",
+                      "text": "Show Log",
+                      "press": "onShowLog",
+                      "requiresSelection": false,
+                      "determining": true,
+                      "applicablePath": "ApprovalLogHide"
+                    },
+                    "ShowStatus": {
+                      "id": "ShowStatus",
+                      "text": "Show Status",
+                      "press": "onShowStatus",
+                      "requiresSelection": false,
+                      "determining": true,
+                      "applicablePath": "ShowstatusButton"
+                    },
+                    "Withdraw": {
+                      "id": "Withdraw",
+                      "text": "Withdraw",
+                      "press": "onWithdraw",
+                      "requiresSelection": false,
+                      "determining": true,
+                      "applicablePath": "WithdrawButton"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+            "controllerName": "zmaterialcreate.materialcreate.ext.controller.ListReportExt",
+            "sap.ui.generic.app": {
+              "ZP_QU_DG_MARA_MASSREQ": {
+                "EntitySet": "ZP_QU_DG_MARA_MASSREQ",
+                "Actions": {
+                  "customcreate": {
+                    "id": "customcreateButton",
+                    "text": "Create",
+                    "press": "onCreate",
+                    "requiresSelection": false
+                  },
+                  "copy": {
+                    "id": "copyButton",
+                    "text": "Copy",
+                    "press": "onCopy",
+                    "requiresSelection": true
+                  },
+                  "idCustomSearch": {
+                    "id": "idCustomSearchButton",
+                    "text": "Classification Search",
+                    "press": "handleCustomSearch",
+                    "global": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sap.ui.viewExtensions": {
+          "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+            "BeforeHeaderFacet|ZP_QU_DG_MARA_MASSREQ|headerEditable::MaterialHeader": {
+              "className": "sap.ui.core.Fragment",
+              "fragmentName": "zmaterialcreate.materialcreate.ext.fragment.EditImage",
+              "type": "XML"
+            },
+            "AfterFacet|ZP_QU_DG_MARA_MASSREQ|S|1": {
+              "type": "XML",
+              "className": "sap.ui.core.Fragment",
+              "fragmentName": "zmaterialcreate.materialcreate.ext.fragment.longText",
+              "sap.ui.generic.app": {
+                "title": "Long Texts"
+              }
+            },
+            "AfterFacet|ZP_QU_DG_MARA_MASSREQ|S|2": {
+              "type": "XML",
+              "className": "sap.ui.core.Fragment",
+              "fragmentName": "zmaterialcreate.materialcreate.ext.fragment.Comments",
+              "sap.ui.generic.app": {
+                "title": "Comments"
+              }
+            },
+            "AfterFacet|ZP_QU_DG_MARA_MASSREQ|S|3": {
+              "type": "XML",
+              "className": "sap.ui.core.Fragment",
+              "fragmentName": "zmaterialcreate.materialcreate.ext.fragment.Attachments",
+              "sap.ui.generic.app": {
+                "title": "Attachments"
+              }
+            },
+            "ResponsiveTableColumnsExtension|ZP_QU_DG_Character_massreq|Char": {
+              "className": "sap.ui.core.Fragment",
+              "fragmentName": "zmaterialcreate.materialcreate.ext.fragment.CustomCharValueColumn",
+              "type": "XML"
+            },
+            "ResponsiveTableCellsExtension|ZP_QU_DG_Character_massreq|Char": {
+              "className": "sap.ui.core.Fragment",
+              "fragmentName": "zmaterialcreate.materialcreate.ext.fragment.CustomCharValueCells",
+              "type": "XML"
+            },
+            "SmartFormExtension|ZP_QU_DG_MARA_MASSREQ|ProductHeirarchyFG": {
+              "className": "sap.ui.core.Fragment",
+              "fragmentName": "zmaterialcreate.materialcreate.ext.fragment.ProductHierarchyField",
+              "type": "XML"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.ui.generic.app": {
+    "_version": "1.3.0",
+    "settings": {
+      "forceGlobalRefresh": false,
+      "objectPageHeaderType": "Dynamic",
+      "considerAnalyticalParameters": true,
+      "showDraftToggle": false
+    },
+    "pages": {
+      "ListReport|ZP_QU_DG_MARA_MASSREQ": {
+        "entitySet": "ZP_QU_DG_MARA_MASSREQ",
+        "component": {
+          "name": "sap.suite.ui.generic.template.ListReport",
+          "list": true,
+          "settings": {
+            "condensedTableLayout": true,
+            "smartVariantManagement": true,
+            "enableTableFilterInPageVariant": true,
+            "draft": true,
+            "filterSettings": {
+              "dateSettings": {
+                "useDateRange": true
+              }
+            },
+            "tableSettings": {
+              "type": "ResponsiveTable"
+            },
+            "quickVariantSelectionX": {
+              "enableAutoBinding": true,
+              "variants": {
+                "0": {
+                  "key": "tab0",
+                  "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#Materials",
+                  "entitySet": "ZP_QU_DG_MARA_MASSREQ"
+                },
+                "1": {
+                  "key": "tab1",
+                  "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#Requests",
+                  "entitySet": "ZP_QU_DG_MARA_MASSREQ"
+                }
+              },
+              "showCounts": true
+            }
+          }
+        },
+        "pages": {
+          "ObjectPage|ZP_QU_DG_MARA_MASSREQ": {
+            "entitySet": "ZP_QU_DG_MARA_MASSREQ",
+            "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+            "component": {
+              "name": "sap.suite.ui.generic.template.ObjectPage",
+              "settings": {
+                "sections": {
+                  "MaterialPlant": {
+                    "navigationProperty": "to_plant",
+                    "entitySet": "ZP_QU_DG_MARC_MASSREQ",
+                    "createMode": "inline"
+                  },
+                  "MaterialSales": {
+                    "navigationProperty": "to_sales",
+                    "entitySet": "ZP_QU_DG_MVKE_MASSREQ",
+                    "createMode": "inline"
+                  },
+                  "MaterialTax": {
+                    "navigationProperty": "to_tax",
+                    "entitySet": "ZP_QU_DG_MLAN_MASSREQ",
+                    "createMode": "inline"
+                  },
+                  "MaterialUOM": {
+                    "navigationProperty": "to_unitofmeasure",
+                    "entitySet": "ZP_QU_DG_MARM_MASSREQ",
+                    "createMode": "inline"
+                  },
+                  "MaterialValuation": {
+                    "navigationProperty": "to_valuation",
+                    "entitySet": "ZP_QU_DG_MBEW_MASSREQ",
+                    "createMode": "inline"
+                  },
+                  "MaterialWarehouse": {
+                    "navigationProperty": "to_warehouse",
+                    "entitySet": "ZP_QU_DG_MLGN_MASSREQ",
+                    "createMode": "inline"
+                  },
+                  "Matclass": {
+                    "navigationProperty": "to_class",
+                    "entitySet": "ZP_QU_DG_Clasification_massreq",
+                    "createMode": "inline"
+                  }
+                }
+              }
+            },
+            "pages": {
+              "ObjectPage|to_plant": {
+                "navigationProperty": "to_plant",
+                "entitySet": "ZP_QU_DG_MARC_MASSREQ",
+                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                "component": {
+                  "name": "sap.suite.ui.generic.template.ObjectPage",
+                  "settings": {
+                    "sections": {
+                      "MaterialPlant": {
+                        "navigationProperty": "to_storageloc",
+                        "entitySet": "ZP_QU_DG_MARD_MASSREQ",
+                        "createMode": "inline"
+                      }
+                    }
+                  }
+                },
+                "pages": {
+                  "ObjectPage|to_storageloc": {
+                    "navigationProperty": "to_storageloc",
+                    "entitySet": "ZP_QU_DG_MARD_MASSREQ",
+                    "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                    "component": {
+                      "name": "sap.suite.ui.generic.template.ObjectPage"
+                    }
+                  }
+                }
+              },
+              "ObjectPage|to_sales": {
+                "navigationProperty": "to_sales",
+                "entitySet": "ZP_QU_DG_MVKE_MASSREQ",
+                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                "component": {
+                  "name": "sap.suite.ui.generic.template.ObjectPage"
+                }
+              },
+              "ObjectPage|to_tax": {
+                "entitySet": "ZP_QU_DG_MLAN_MASSREQ",
+                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                "component": {
+                  "name": "sap.suite.ui.generic.template.ObjectPage"
+                }
+              },
+              "ObjectPage|to_valuation": {
+                "navigationProperty": "to_valuation",
+                "entitySet": "ZP_QU_DG_MBEW_MASSREQ",
+                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                "component": {
+                  "name": "sap.suite.ui.generic.template.ObjectPage"
+                }
+              },
+              "ObjectPage|to_warehouse": {
+                "navigationProperty": "to_warehouse",
+                "entitySet": "ZP_QU_DG_MLGN_MASSREQ",
+                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                "component": {
+                  "name": "sap.suite.ui.generic.template.ObjectPage",
+                  "settings": {
+                    "sections": {
+                      "MaterialStorageType": {
+                        "navigationProperty": "to_storagetype",
+                        "entitySet": "ZP_QU_DG_MLGT_MASSREQ",
+                        "createMode": "inline"
+                      }
+                    }
+                  }
+                },
+                "pages": {
+                  "ObjectPage|to_storagetype": {
+                    "navigationProperty": "to_storagetype",
+                    "entitySet": "ZP_QU_DG_MLGT_MASSREQ",
+                    "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                    "component": {
+                      "name": "sap.suite.ui.generic.template.ObjectPage"
+                    }
+                  }
+                }
+              },
+              "ObjectPage|to_class": {
+                "navigationProperty": "to_class",
+                "entitySet": "ZP_QU_DG_Clasification_massreq",
+                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                "component": {
+                  "name": "sap.suite.ui.generic.template.ObjectPage"
+                }
+              },
+              "customPage": {
+                "component": {
+                  "name": "sap.suite.ui.generic.template.Canvas",
+                  "settings": {}
+                },
+                "implementingComponent": {
+                  "componentName": "zmaterialcreate.materialcreate.customComponents.comp1",
+                  "settings": {}
+                },
+                "routingSpec": {
+                  "noOData": true,
+                  "noKey": true,
+                  "routeName": "CustomRoute"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

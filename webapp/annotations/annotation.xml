@@ -1,0 +1,2936 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZP_QU_DG_MARA_MASSREQ_BND/$metadata">
+        <edmx:Include Namespace="cds_zp_qu_dg_mara_massreq_srv" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.cds_zp_qu_dg_mara_massreq_srv_Entities/ZP_QU_DG_MARA_MASSREQ">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Path="FTEHide" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Path="EditButton" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="deletionFlag">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lvorm</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_plant</NavigationPropertyPath>
+                                <NavigationPropertyPath>to_sales</NavigationPropertyPath>
+                                <NavigationPropertyPath>to_warehouse</NavigationPropertyPath>
+                                <NavigationPropertyPath>to_storageloc</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>to_plant/Lvorm</String>
+                                <String>to_sales/Lvorm</String>
+                                <String>to_warehouse/Lvorm</String>
+                                <String>to_storageloc/Lvorm</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQType">
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="Materials">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="Text" String="Materials" />
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection>
+                                        <Record Type="UI.SelectOptionType">
+                                            <PropertyValue Property="PropertyName" PropertyPath="reqtyp" />
+                                            <PropertyValue Property="Ranges">
+                                                <Collection>
+                                                    <Record Type="UI.SelectionRangeType">
+                                                        <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I" />
+                                                        <PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ" />
+                                                        <PropertyValue Property="Low" String="EX" />
+                                                    </Record>
+                                                </Collection>
+                                            </PropertyValue>
+                                        </Record>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem#MaterialsTable</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem" Qualifier="MaterialsTable">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                        <PropertyValue Property="Criticality" Path="overallCriticality"/>
+                            <PropertyValue Property="Value" Path="Matnr" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="maktx" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Mtart" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Reqid" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Laeda" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Aenam" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+                        </Record>
+                    </Collection>
+                    <Annotation Term="UI.Criticality" Path="Lvorm"/>
+                </Annotation>
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="Requests">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="Text" String="Requests" />
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection>
+                                        <Record Type="UI.SelectOptionType">
+                                            <PropertyValue Property="PropertyName" PropertyPath="reqtyp" />
+                                            <PropertyValue Property="Ranges">
+                                                <Collection>
+                                                    <Record Type="UI.SelectionRangeType">
+                                                        <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I" />
+                                                        <PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/NE" />
+                                                        <PropertyValue Property="Low" String="EX" />
+                                                    </Record>
+                                                </Collection>
+                                            </PropertyValue>
+                                        </Record>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="UOMMARA">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bstme</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_unitofmeasure</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmShlfLfeReqMin</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG2">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Kunnr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="RootTax">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_sales</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_taxdata</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="RootClassification">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_class</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_characteristics</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG3">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>xcwmxtara</PropertyPath>
+                                <PropertyPath>xcwmxtarum</PropertyPath>
+                                <PropertyPath>Brgew</PropertyPath>
+                                <PropertyPath>Ean11</PropertyPath>
+                                <PropertyPath>Gewei</PropertyPath>
+                                <PropertyPath>Groes</PropertyPath>
+                                <PropertyPath>Ntgew</PropertyPath>
+                                <PropertyPath>Numtp</PropertyPath>
+                                <PropertyPath>Voleh</PropertyPath>
+                                <PropertyPath>Volum</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG4">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>xcwmxvalum</PropertyPath>
+                                <PropertyPath>xcwmxxcwmat</PropertyPath>
+                                <PropertyPath>Bismt</PropertyPath>
+                                <PropertyPath>Cwqtolgr</PropertyPath>
+                                <PropertyPath>Extwg</PropertyPath>
+                                <PropertyPath>Kosch</PropertyPath>
+                                <PropertyPath>Kzeff</PropertyPath>
+                                <PropertyPath>Labor</PropertyPath>
+                                <PropertyPath>Matkl</PropertyPath>
+                                <PropertyPath>Meins</PropertyPath>
+                                <PropertyPath>Mstae</PropertyPath>
+                                <PropertyPath>Mstde</PropertyPath>
+                                <PropertyPath>MtposMara</PropertyPath>
+                                <PropertyPath>Prdha</PropertyPath>
+                                <PropertyPath>Spart</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG5">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Matnr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG6">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Begru</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG7">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Magrv</PropertyPath>
+                                <PropertyPath>Przus</PropertyPath>
+                                <PropertyPath>Rmatp</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG8">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Anp</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG9">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Kzkfg</PropertyPath>
+                                <PropertyPath>Satnr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG10">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Aeszn</PropertyPath>
+                                <PropertyPath>Blanz</PropertyPath>
+                                <PropertyPath>Blatt</PropertyPath>
+                                <PropertyPath>Zeiar</PropertyPath>
+                                <PropertyPath>Zeifo</PropertyPath>
+                                <PropertyPath>Zeinr</PropertyPath>
+                                <PropertyPath>Zeivr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG11">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>DgPackStatus</PropertyPath>
+                                <PropertyPath>Ihivi</PropertyPath>
+                                <PropertyPath>Iloos</PropertyPath>
+                                <PropertyPath>Kzumw</PropertyPath>
+                                <PropertyPath>Packcode</PropertyPath>
+                                <PropertyPath>Profl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG12">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Cadkz</PropertyPath>
+                                <PropertyPath>Ferth</PropertyPath>
+                                <PropertyPath>Formt</PropertyPath>
+                                <PropertyPath>Medium</PropertyPath>
+                                <PropertyPath>Msbookpartno</PropertyPath>
+                                <PropertyPath>Normt</PropertyPath>
+                                <PropertyPath>Wrkst</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG13">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>SgtCovsa</PropertyPath>
+                                <PropertyPath>SgtCsgr</PropertyPath>
+                                <PropertyPath>SgtScope</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG14">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmBodDeplvl</PropertyPath>
+                                <PropertyPath>ScmDrpGlStock</PropertyPath>
+                                <PropertyPath>ScmExclExpedite</PropertyPath>
+                                <PropertyPath>ScmKitcomp</PropertyPath>
+                                <PropertyPath>ScmProdPaoopt</PropertyPath>
+                                <PropertyPath>ScmRestrictInvbal</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG15">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Behvo</PropertyPath>
+                                <PropertyPath>Etiar</PropertyPath>
+                                <PropertyPath>Etifo</PropertyPath>
+                                <PropertyPath>Raube</PropertyPath>
+                                <PropertyPath>Stoff</PropertyPath>
+                                <PropertyPath>Tempb</PropertyPath>
+                                <PropertyPath>Wesch</PropertyPath>
+                                <PropertyPath>Xchpf</PropertyPath>
+                                <PropertyPath>Xgchp</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG16">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Iprkz</PropertyPath>
+                                <PropertyPath>Mhdhb</PropertyPath>
+                                <PropertyPath>Mhdlp</PropertyPath>
+                                <PropertyPath>Mhdrz</PropertyPath>
+                                <PropertyPath>Rdmhd</PropertyPath>
+                                <PropertyPath>SledBbd</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG17">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmMaturityDur</PropertyPath>
+                                <PropertyPath>ScmShlfLfeReqMax</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG18">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Herkl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG19">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Kzkup</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG20">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Commodity</PropertyPath>
+                                <PropertyPath>Dpcbt</PropertyPath>
+                                <PropertyPath>Kzwsm</PropertyPath>
+                                <PropertyPath>Xgrdt</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG21">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bstme</PropertyPath>
+                                <PropertyPath>Nrfhg</PropertyPath>
+                                <PropertyPath>Vabme</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG22">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bmatn</PropertyPath>
+                                <PropertyPath>Mfrnr</PropertyPath>
+                                <PropertyPath>Mfrpn</PropertyPath>
+                                <PropertyPath>Mprof</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG23">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Ekwsl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG24">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Rbnrm</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG25">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Qmpur</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG26">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Mfrgr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG27">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Serlv</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG28">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Ergei</PropertyPath>
+                                <PropertyPath>Ergew</PropertyPath>
+                                <PropertyPath>Ervoe</PropertyPath>
+                                <PropertyPath>Ervol</PropertyPath>
+                                <PropertyPath>Fuelg</PropertyPath>
+                                <PropertyPath>Gewto</PropertyPath>
+                                <PropertyPath>Kzgvh</PropertyPath>
+                                <PropertyPath>Stfak</PropertyPath>
+                                <PropertyPath>Vhart</PropertyPath>
+                                <PropertyPath>Volto</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG29">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Tragr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG30">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Mstav</PropertyPath>
+                                <PropertyPath>Mstdv</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG31">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Breit</PropertyPath>
+                                <PropertyPath>Hoehe</PropertyPath>
+                                <PropertyPath>Laeng</PropertyPath>
+                                <PropertyPath>Meabm</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG32">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Cwqproc</PropertyPath>
+                                <PropertyPath>Cwqrel</PropertyPath>
+                                <PropertyPath>Logunit</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG33">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Qgrp</PropertyPath>
+                                <PropertyPath>Qqtime</PropertyPath>
+                                <PropertyPath>Qqtimeuom</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG34">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Adprof</PropertyPath>
+                                <PropertyPath>Hazmat</PropertyPath>
+                                <PropertyPath>Hndlcode</PropertyPath>
+                                <PropertyPath>HutypDflt</PropertyPath>
+                                <PropertyPath>Pilferable</PropertyPath>
+                                <PropertyPath>ScmPuom</PropertyPath>
+                                <PropertyPath>Serial</PropertyPath>
+                                <PropertyPath>Whmatgr</PropertyPath>
+                                <PropertyPath>Whstc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG35">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Hutyp</PropertyPath>
+                                <PropertyPath>Maxc</PropertyPath>
+                                <PropertyPath>MaxcTol</PropertyPath>
+                                <PropertyPath>PsSmartform</PropertyPath>
+                                <PropertyPath>TareVar</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG36">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Maxb</PropertyPath>
+                                <PropertyPath>MaxdimUom</PropertyPath>
+                                <PropertyPath>Maxh</PropertyPath>
+                                <PropertyPath>Maxl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG37">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>BridgeMaxSlope</PropertyPath>
+                                <PropertyPath>BridgeTresh</PropertyPath>
+                                <PropertyPath>HeightNonflat</PropertyPath>
+                                <PropertyPath>HeightNonflatUom</PropertyPath>
+                                <PropertyPath>MoProfileId</PropertyPath>
+                                <PropertyPath>OverhangTresh</PropertyPath>
+                                <PropertyPath>ProdShape</PropertyPath>
+                                <PropertyPath>RmatpPb</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/ZP_QU_DG_MARA_MASSREQPrepare" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARC_MASSREQType">
+                <Annotation Term="Common.SideEffects" Qualifier="UOMMARC1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Ausme</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_material/to_unitofmeasure</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="UOMMARC2">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Frtme</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_material/to_unitofmeasure</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmFixpegProdSet</PropertyPath>
+                                <PropertyPath>ScmGesBstUse</PropertyPath>
+                                <PropertyPath>ScmGesMngUse</PropertyPath>
+                                <PropertyPath>ScmGetAlerts</PropertyPath>
+                                <PropertyPath>ScmMinPassAmount</PropertyPath>
+                                <PropertyPath>ScmPegFutureAlert</PropertyPath>
+                                <PropertyPath>ScmPegPastAlert</PropertyPath>
+                                <PropertyPath>ScmPegStrategy</PropertyPath>
+                                <PropertyPath>ScmPegWoAlertFst</PropertyPath>
+                                <PropertyPath>ScmResNetName</PropertyPath>
+                                <PropertyPath>ScmStra1</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG2">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmConhap</PropertyPath>
+                                <PropertyPath>ScmConhapOut</PropertyPath>
+                                <PropertyPath>ScmGiprt</PropertyPath>
+                                <PropertyPath>ScmGrprt</PropertyPath>
+                                <PropertyPath>ScmHunit</PropertyPath>
+                                <PropertyPath>ScmHunitOut</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG3">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmShelfLifeDur</PropertyPath>
+                                <PropertyPath>ScmShelfLifeLoc</PropertyPath>
+                                <PropertyPath>ScmShlfLfeReqMin</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG4">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmLsuom</PropertyPath>
+                                <PropertyPath>ScmReldt</PropertyPath>
+                                <PropertyPath>ScmReordDur</PropertyPath>
+                                <PropertyPath>ScmTargetDur</PropertyPath>
+                                <PropertyPath>ScmTstrid</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG5">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmHeurId</PropertyPath>
+                                <PropertyPath>ScmIntsrcProf</PropertyPath>
+                                <PropertyPath>ScmPackageId</PropertyPath>
+                                <PropertyPath>ScmPrio</PropertyPath>
+                                <PropertyPath>ScmProfid</PropertyPath>
+                                <PropertyPath>ScmRrpSelGroup</PropertyPath>
+                                <PropertyPath>ScmRrpType</PropertyPath>
+                                <PropertyPath>ScmScost</PropertyPath>
+                                <PropertyPath>ScmSspen</PropertyPath>
+                                <PropertyPath>ScmWhatbom</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG6">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Ppskz</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG7">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Matnr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG8">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>SgtScope</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG9">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Awsls</PropertyPath>
+                                <PropertyPath>Ncost</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG10">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Aplal</PropertyPath>
+                                <PropertyPath>Fvidk</PropertyPath>
+                                <PropertyPath>Fxpru</PropertyPath>
+                                <PropertyPath>Losgr</PropertyPath>
+                                <PropertyPath>Plnnr</PropertyPath>
+                                <PropertyPath>Plnty</PropertyPath>
+                                <PropertyPath>Sobsk</PropertyPath>
+                                <PropertyPath>Stlal</PropertyPath>
+                                <PropertyPath>Stlan</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG11">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bwtty</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG12">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmNdcostwa</PropertyPath>
+                                <PropertyPath>ScmNdcostwe</PropertyPath>
+                                <PropertyPath>ScmProcCost</PropertyPath>
+                                <PropertyPath>ScmScostPrcnt</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG13">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmMaxstockV</PropertyPath>
+                                <PropertyPath>ScmPpsaftystk</PropertyPath>
+                                <PropertyPath>ScmPpsaftystkV</PropertyPath>
+                                <PropertyPath>ScmReordV</PropertyPath>
+                                <PropertyPath>ScmRepsafty</PropertyPath>
+                                <PropertyPath>ScmRepsaftyV</PropertyPath>
+                                <PropertyPath>ScmSaftyV</PropertyPath>
+                                <PropertyPath>ScmTpop</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG14">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmThruputTime</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG15">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Autru</PropertyPath>
+                                <PropertyPath>Kzkfk</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG16">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>period_ind</PropertyPath>
+                                <PropertyPath>Vrbdt</PropertyPath>
+                                <PropertyPath>Vrbfk</PropertyPath>
+                                <PropertyPath>Vrbmt</PropertyPath>
+                                <PropertyPath>Vrbwk</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG17">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Abcin</PropertyPath>
+                                <PropertyPath>Ausme</PropertyPath>
+                                <PropertyPath>Ccfix</PropertyPath>
+                                <PropertyPath>Xchpf</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG18">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>SgtChint</PropertyPath>
+                                <PropertyPath>SgtCovs</PropertyPath>
+                                <PropertyPath>SgtDefsc</PropertyPath>
+                                <PropertyPath>SgtMrpsi</PropertyPath>
+                                <PropertyPath>SgtPrcm</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG19">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lzeih</PropertyPath>
+                                <PropertyPath>Maxlz</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG20">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ScmMaturityDur</PropertyPath>
+                                <PropertyPath>ScmShlfLfeReqMax</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG21">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Eprio</PropertyPath>
+                                <PropertyPath>Loggr</PropertyPath>
+                                <PropertyPath>Sernp</PropertyPath>
+                                <PropertyPath>UidIea</PropertyPath>
+                                <PropertyPath>Xmcng</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG22">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Casnr</PropertyPath>
+                                <PropertyPath>Expme</PropertyPath>
+                                <PropertyPath>Gpnum</PropertyPath>
+                                <PropertyPath>Mtver</PropertyPath>
+                                <PropertyPath>Stawn</PropertyPath>
+                                <PropertyPath>Steuc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG23">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Itark</PropertyPath>
+                                <PropertyPath>Prenc</PropertyPath>
+                                <PropertyPath>Prend</PropertyPath>
+                                <PropertyPath>Preno</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG24">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Indus</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG25">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Herkl</PropertyPath>
+                                <PropertyPath>Herkr</PropertyPath>
+                                <PropertyPath>Mogru</PropertyPath>
+                                <PropertyPath>Mownr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG26">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Disgr</PropertyPath>
+                                <PropertyPath>Maabc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG27">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Ausss</PropertyPath>
+                                <PropertyPath>Bstfe</PropertyPath>
+                                <PropertyPath>Bstma</PropertyPath>
+                                <PropertyPath>Bstmi</PropertyPath>
+                                <PropertyPath>Bstrf</PropertyPath>
+                                <PropertyPath>Disls</PropertyPath>
+                                <PropertyPath>Lagpr</PropertyPath>
+                                <PropertyPath>Losfx</PropertyPath>
+                                <PropertyPath>Mabst</PropertyPath>
+                                <PropertyPath>Takzt</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG28">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Diber</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG29">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Dismm</PropertyPath>
+                                <PropertyPath>Dispo</PropertyPath>
+                                <PropertyPath>Fxhor</PropertyPath>
+                                <PropertyPath>Lfrhy</PropertyPath>
+                                <PropertyPath>Minbe</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG30">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Eisbe</PropertyPath>
+                                <PropertyPath>Eislo</PropertyPath>
+                                <PropertyPath>Lgrad</PropertyPath>
+                                <PropertyPath>Rwpro</PropertyPath>
+                                <PropertyPath>Shflg</PropertyPath>
+                                <PropertyPath>Shpro</PropertyPath>
+                                <PropertyPath>Shzet</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG31">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Beskz</PropertyPath>
+                                <PropertyPath>Kzech</PropertyPath>
+                                <PropertyPath>Kzkup</PropertyPath>
+                                <PropertyPath>Lgfsb</PropertyPath>
+                                <PropertyPath>Lgpro</PropertyPath>
+                                <PropertyPath>Rgekz</PropertyPath>
+                                <PropertyPath>Schgt</PropertyPath>
+                                <PropertyPath>Sobsl</PropertyPath>
+                                <PropertyPath>Vspvb</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG32">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Dzeit</PropertyPath>
+                                <PropertyPath>Fhori</PropertyPath>
+                                <PropertyPath>Mrppp</PropertyPath>
+                                <PropertyPath>Plifz</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG33">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Kzpsp</PropertyPath>
+                                <PropertyPath>Wzeit</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG34">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Auftl</PropertyPath>
+                                <PropertyPath>Periv</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG35">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Miskz</PropertyPath>
+                                <PropertyPath>Strgr</PropertyPath>
+                                <PropertyPath>Vint1</PropertyPath>
+                                <PropertyPath>Vint2</PropertyPath>
+                                <PropertyPath>Vrmod</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG36">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Stdpd</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG37">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Ahdis</PropertyPath>
+                                <PropertyPath>Altsl</PropertyPath>
+                                <PropertyPath>Kausf</PropertyPath>
+                                <PropertyPath>Kzbed</PropertyPath>
+                                <PropertyPath>Sbdkz</PropertyPath>
+                                <PropertyPath>Verkz</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG38">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Ausdt</PropertyPath>
+                                <PropertyPath>Kzaus</PropertyPath>
+                                <PropertyPath>Nfmat</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG39">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Dplfs</PropertyPath>
+                                <PropertyPath>Dplho</PropertyPath>
+                                <PropertyPath>Dplpu</PropertyPath>
+                                <PropertyPath>Mdach</PropertyPath>
+                                <PropertyPath>Sauft</PropertyPath>
+                                <PropertyPath>Sfepr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG40">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lfgja</PropertyPath>
+                                <PropertyPath>Lfmon</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG41">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Trame</PropertyPath>
+                                <PropertyPath>Umlmc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG42">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Dpcbt</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG43">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Ekgrp</PropertyPath>
+                                <PropertyPath>Kautb</PropertyPath>
+                                <PropertyPath>Uchkz</PropertyPath>
+                                <PropertyPath>Ucmat</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG44">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Fabkz</PropertyPath>
+                                <PropertyPath>Insmk</PropertyPath>
+                                <PropertyPath>Kordb</PropertyPath>
+                                <PropertyPath>Kzkri</PropertyPath>
+                                <PropertyPath>Usequ</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG45">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Kzdkz</PropertyPath>
+                                <PropertyPath>Prfrq</PropertyPath>
+                                <PropertyPath>Qmata</PropertyPath>
+                                <PropertyPath>Qmatv</PropertyPath>
+                                <PropertyPath>Webaz</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG46">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Qssys</PropertyPath>
+                                <PropertyPath>Qzgtp</PropertyPath>
+                                <PropertyPath>Ssqss</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG47">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Atpkz</PropertyPath>
+                                <PropertyPath>Mfrgr</PropertyPath>
+                                <PropertyPath>Mtvfp</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG48">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Fprfm</PropertyPath>
+                                <PropertyPath>IuidRelevant</PropertyPath>
+                                <PropertyPath>IuidType</PropertyPath>
+                                <PropertyPath>Prctr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG49">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Werks</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG50">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Ladgr</PropertyPath>
+                                <PropertyPath>Vbamg</PropertyPath>
+                                <PropertyPath>Vbeaz</PropertyPath>
+                                <PropertyPath>Vrvez</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG51">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ArunFixBatch</PropertyPath>
+                                <PropertyPath>FshMgArunReq</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG52">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Megru</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG53">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Rdprf</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG54">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Fevor</PropertyPath>
+                                <PropertyPath>Frtme</PropertyPath>
+                                <PropertyPath>Matgr</PropertyPath>
+                                <PropertyPath>Mmsta</PropertyPath>
+                                <PropertyPath>Mmstd</PropertyPath>
+                                <PropertyPath>Ocmpf</PropertyPath>
+                                <PropertyPath>Sfcpf</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG55">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Basmg</PropertyPath>
+                                <PropertyPath>Bearz</PropertyPath>
+                                <PropertyPath>Ruezt</PropertyPath>
+                                <PropertyPath>Tranz</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG56">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Ueetk</PropertyPath>
+                                <PropertyPath>Ueeto</PropertyPath>
+                                <PropertyPath>Uneto</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MarcValidate" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARD_MASSREQType">
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Matnr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG2">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lgpbe</PropertyPath>
+                                <PropertyPath>Lwmkb</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG3">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lgort</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG4">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Herkl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG5">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Diskz</PropertyPath>
+                                <PropertyPath>Lbstf</PropertyPath>
+                                <PropertyPath>Lminb</PropertyPath>
+                                <PropertyPath>Lsobs</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG6">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bskrf</PropertyPath>
+                                <PropertyPath>Lfgja</PropertyPath>
+                                <PropertyPath>Lfmon</PropertyPath>
+                                <PropertyPath>Sperr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG7">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Einme</PropertyPath>
+                                <PropertyPath>Insme</PropertyPath>
+                                <PropertyPath>Keinm</PropertyPath>
+                                <PropertyPath>Kinsm</PropertyPath>
+                                <PropertyPath>Klabs</PropertyPath>
+                                <PropertyPath>Kspem</PropertyPath>
+                                <PropertyPath>Labst</PropertyPath>
+                                <PropertyPath>Retme</PropertyPath>
+                                <PropertyPath>Speme</PropertyPath>
+                                <PropertyPath>Umlme</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG8">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Vmein</PropertyPath>
+                                <PropertyPath>Vmins</PropertyPath>
+                                <PropertyPath>Vmlab</PropertyPath>
+                                <PropertyPath>Vmret</PropertyPath>
+                                <PropertyPath>Vmspe</PropertyPath>
+                                <PropertyPath>Vmuml</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG9">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Werks</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <!-- added by mahesh -->
+             <!-- <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MBEW_MASSREQType">
+                <Annotation Term="Common.SideEffects" Qualifier="VALMBEW1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bklas</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                             </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="PRIMBEW1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Vprsv</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                             </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+               </Annotations>  -->
+            <!-- end -->
+
+            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MVKE_MASSREQType">
+                <Annotation Term="Common.SideEffects" Qualifier="UOMMVKE1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Vrkme</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_material/to_unitofmeasure</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="UOMMVKE2">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Schme</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_material/to_unitofmeasure</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Matnr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MvkeValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG2">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Dwerk</PropertyPath>
+                                <PropertyPath>Megru</PropertyPath>
+                                <PropertyPath>Sktof</PropertyPath>
+                                <PropertyPath>Vavme</PropertyPath>
+                                <PropertyPath>Vmsta</PropertyPath>
+                                <PropertyPath>Vmstd</PropertyPath>
+                                <PropertyPath>Vrkme</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MvkeValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG3">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>vkorgInput</PropertyPath>
+                                <PropertyPath>vtwegInput</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_taxdata</NavigationPropertyPath>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MvkeValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG4">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Aumng</PropertyPath>
+                                <PropertyPath>Efmng</PropertyPath>
+                                <PropertyPath>Lfmng</PropertyPath>
+                                <PropertyPath>Rdprf</PropertyPath>
+                                <PropertyPath>Schme</PropertyPath>
+                                <PropertyPath>Scmng</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MvkeValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG5">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bonus</PropertyPath>
+                                <PropertyPath>Kondm</PropertyPath>
+                                <PropertyPath>Ktgrm</PropertyPath>
+                                <PropertyPath>Mtpos</PropertyPath>
+                                <PropertyPath>Pmatn</PropertyPath>
+                                <PropertyPath>Prodh</PropertyPath>
+                                <PropertyPath>Provg</PropertyPath>
+                                <PropertyPath>Versg</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MvkeValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG6">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Mvgr1</PropertyPath>
+                                <PropertyPath>Mvgr2</PropertyPath>
+                                <PropertyPath>Mvgr3</PropertyPath>
+                                <PropertyPath>Mvgr4</PropertyPath>
+                                <PropertyPath>Mvgr5</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MvkeValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG7">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Prat1</PropertyPath>
+                                <PropertyPath>Prat2</PropertyPath>
+                                <PropertyPath>Prat3</PropertyPath>
+                                <PropertyPath>Prat4</PropertyPath>
+                                <PropertyPath>Prat5</PropertyPath>
+                                <PropertyPath>Prat6</PropertyPath>
+                                <PropertyPath>Prat7</PropertyPath>
+                                <PropertyPath>Prat8</PropertyPath>
+                                <PropertyPath>Prat9</PropertyPath>
+                                <PropertyPath>Prata</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MvkeValidate" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARD_MASSREQType">
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG11">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Matnr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG21">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lgpbe</PropertyPath>
+                                <PropertyPath>Lwmkb</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG31">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lgort</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG41">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Herkl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG51">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Diskz</PropertyPath>
+                                <PropertyPath>Lbstf</PropertyPath>
+                                <PropertyPath>Lminb</PropertyPath>
+                                <PropertyPath>Lsobs</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG61">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bskrf</PropertyPath>
+                                <PropertyPath>Lfgja</PropertyPath>
+                                <PropertyPath>Lfmon</PropertyPath>
+                                <PropertyPath>Sperr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG71">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Einme</PropertyPath>
+                                <PropertyPath>Insme</PropertyPath>
+                                <PropertyPath>Keinm</PropertyPath>
+                                <PropertyPath>Kinsm</PropertyPath>
+                                <PropertyPath>Klabs</PropertyPath>
+                                <PropertyPath>Kspem</PropertyPath>
+                                <PropertyPath>Labst</PropertyPath>
+                                <PropertyPath>Retme</PropertyPath>
+                                <PropertyPath>Speme</PropertyPath>
+                                <PropertyPath>Umlme</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG81">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Vmein</PropertyPath>
+                                <PropertyPath>Vmins</PropertyPath>
+                                <PropertyPath>Vmlab</PropertyPath>
+                                <PropertyPath>Vmret</PropertyPath>
+                                <PropertyPath>Vmspe</PropertyPath>
+                                <PropertyPath>Vmuml</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG91">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Werks</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MBEW_MASSREQType">
+              <Annotation Term="Common.SideEffects" Qualifier="VALMBEW1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bklas</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                             </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="PRIMBEW1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Vprsv</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                             </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bwkey</PropertyPath>
+                                <PropertyPath>Bwtar</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG2">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Mtorg</PropertyPath>
+                                <PropertyPath>Mtuse</PropertyPath>
+                                <PropertyPath>Ownpr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG3">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Abwkz</PropertyPath>
+                                <PropertyPath>Bwpei</PropertyPath>
+                                <PropertyPath>Bwph1</PropertyPath>
+                                <PropertyPath>Bwprh</PropertyPath>
+                                <PropertyPath>Bwprs</PropertyPath>
+                                <PropertyPath>Bwps1</PropertyPath>
+                                <PropertyPath>Vjbwh</PropertyPath>
+                                <PropertyPath>Vjbws</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG4">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Mypol</PropertyPath>
+                                <PropertyPath>Xlifo</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG5">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Vmbkl</PropertyPath>
+                                <PropertyPath>Vmkum</PropertyPath>
+                                <PropertyPath>Vmpei</PropertyPath>
+                                <PropertyPath>Vmsal</PropertyPath>
+                                <PropertyPath>Vmstp</PropertyPath>
+                                <PropertyPath>Vmver</PropertyPath>
+                                <PropertyPath>Vmvpr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG6">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Vjbkl</PropertyPath>
+                                <PropertyPath>Vjkum</PropertyPath>
+                                <PropertyPath>Vjpei</PropertyPath>
+                                <PropertyPath>Vjsal</PropertyPath>
+                                <PropertyPath>Vjstp</PropertyPath>
+                                <PropertyPath>Vjver</PropertyPath>
+                                <PropertyPath>Vjvpr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG7">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Matnr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG8">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Ekalr</PropertyPath>
+                                <PropertyPath>Hkmat</PropertyPath>
+                                <PropertyPath>Hrkft</PropertyPath>
+                                <PropertyPath>Kosgr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG9">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Zpld1</PropertyPath>
+                                <PropertyPath>Zpld2</PropertyPath>
+                                <PropertyPath>Zpld3</PropertyPath>
+                                <PropertyPath>Zplp1</PropertyPath>
+                                <PropertyPath>Zplp2</PropertyPath>
+                                <PropertyPath>Zplp3</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG10">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lplpr</PropertyPath>
+                                <PropertyPath>Pdatl</PropertyPath>
+                                <PropertyPath>Pdatv</PropertyPath>
+                                <PropertyPath>Pdatz</PropertyPath>
+                                <PropertyPath>Pprdl</PropertyPath>
+                                <PropertyPath>Pprdv</PropertyPath>
+                                <PropertyPath>Pprdz</PropertyPath>
+                                <PropertyPath>Stprs</PropertyPath>
+                                <PropertyPath>Vplpr</PropertyPath>
+                                <PropertyPath>Zplpr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG11">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bklas</PropertyPath>
+                                <PropertyPath>Bwtty</PropertyPath>
+                                <PropertyPath>Eklas</PropertyPath>
+                                <PropertyPath>Peinh</PropertyPath>
+                                <PropertyPath>Qklas</PropertyPath>
+                                <PropertyPath>Verpr</PropertyPath>
+                                <PropertyPath>Vprsv</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG12">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lfgja</PropertyPath>
+                                <PropertyPath>Lfmon</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MbewValidate" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MLGN_MASSREQType">
+                <Annotation Term="Common.SideEffects" Qualifier="UOMMLGNBEZME">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bezme</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_material/to_unitofmeasure</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Matnr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MlgnValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG2">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Bezme</PropertyPath>
+                                <PropertyPath>Lvsme</PropertyPath>
+                                <PropertyPath>Mkapv</PropertyPath>
+                                <PropertyPath>Plkpt</PropertyPath>
+                                <PropertyPath>Vomem</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MlgnValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG3">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lgnum</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MlgnValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG4">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Block</PropertyPath>
+                                <PropertyPath>Bsskz</PropertyPath>
+                                <PropertyPath>Kzmbf</PropertyPath>
+                                <PropertyPath>Kzzul</PropertyPath>
+                                <PropertyPath>L2skr</PropertyPath>
+                                <PropertyPath>Lgbkz</PropertyPath>
+                                <PropertyPath>Ltkza</PropertyPath>
+                                <PropertyPath>Ltkze</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MlgnValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG5">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lety1</PropertyPath>
+                                <PropertyPath>Lety2</PropertyPath>
+                                <PropertyPath>Lety3</PropertyPath>
+                                <PropertyPath>Lhme1</PropertyPath>
+                                <PropertyPath>Lhme2</PropertyPath>
+                                <PropertyPath>Lhme3</PropertyPath>
+                                <PropertyPath>Lhmg1</PropertyPath>
+                                <PropertyPath>Lhmg2</PropertyPath>
+                                <PropertyPath>Lhmg3</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MlgnValidate" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MLGT_MASSREQType">
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG1">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Matnr</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MlgtValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG2">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lgnum</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MlgtValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG3">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Lgtyp</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MlgtValidate" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG4">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Kober</PropertyPath>
+                                <PropertyPath>Lgpla</PropertyPath>
+                                <PropertyPath>Lpmax</PropertyPath>
+                                <PropertyPath>Lpmin</PropertyPath>
+                                <PropertyPath>Mamng</PropertyPath>
+                                <PropertyPath>Nsmng</PropertyPath>
+                                <PropertyPath>Rdmng</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MlgtValidate" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MVKE_MASSREQType">
+                <Annotation Term="Common.SideEffects" Qualifier="taxSideEffect">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>vkorgInput</PropertyPath>
+                                <!-- <PropertyPath>vtwegInput</PropertyPath> -->
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_taxdata</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>to_taxdata/Tatyp</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="taxSideEffectdist">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>vtwegInput</PropertyPath>
+                                <!-- <PropertyPath>vtwegInput</PropertyPath> -->
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_taxdata</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>to_taxdata/Tatyp</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_Clasification_massreqType">
+                <Annotation Term="Common.SideEffects" Qualifier="charactersideeffect">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>classInput</PropertyPath>
+                                <!-- <PropertyPath>vtwegInput</PropertyPath> -->
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_characteristics</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>to_characteristics/atnam</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="charactersideeff">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>klart</PropertyPath>
+                                <!-- <PropertyPath>vtwegInput</PropertyPath> -->
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_characteristics</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>to_characteristics/atnam</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

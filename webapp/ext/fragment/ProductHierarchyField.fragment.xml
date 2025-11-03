@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns:core='sap.ui.core'
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:sform="sap.ui.comp.smartform"
+    xmlns:smartField="sap.ui.comp.smartfield">
+    <sform:GroupElement label = "Product Hierarchy" visible="{ui>/editable}">
+            <Input showValueHelp="true" valueHelpRequest="openPHvaluehelp" value="{Prdha}"/>
+    </sform:GroupElement>
+    <sform:GroupElement label = "Product Hierarchy" visible="{= ${ui>/editable} !== true }">
+            <Text text="{Prdha}" visible="{= ${ui>/editable} !== true }"/>
+    </sform:GroupElement>
+</core:FragmentDefinition>

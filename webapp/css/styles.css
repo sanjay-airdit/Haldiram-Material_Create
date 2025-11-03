@@ -1,0 +1,40 @@
+.myDisabledNode {
+    opacity: 0.5;
+    pointer-events: none;
+    /* Prevents all mouse interactions */
+    /* cursor: not-allowed; */
+}
+
+.sapMFlexItemAlignAuto.sapMFlexBoxBGTransparent.sapMFlexItem {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.sapFAvatar.sapFAvatarColorAccent6.sapFAvatarL.sapFAvatarImage.sapFAvatarSquare.sapMPointer.sapFAvatarFocusable.sapUxAPObjectPageHeaderObjectImage.sapSmartTemplatesObjectPageHeaderAvatar {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.sapMBtnInner.sapMBtnHoverable.sapMFocusable.sapMBtnText.sapMBtnIconFirst.sapMBtnDefault {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.sapUiIcon.sapUiIconMirrorInRTL.sapMBtnCustomIcon.sapMBtnIcon.sapMBtnIconLeft {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.fileUploaderClass {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.iFrameClass {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border: none !important;
+}
