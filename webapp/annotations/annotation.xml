@@ -2896,13 +2896,12 @@
                     </Record>
                 </Annotation>
             </Annotations>
-            <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_Clasification_massreqType">
+            <!-- <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_Clasification_massreqType">
                 <Annotation Term="Common.SideEffects" Qualifier="charactersideeffect">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
                             <Collection>
                                 <PropertyPath>classInput</PropertyPath>
-                                <!-- <PropertyPath>vtwegInput</PropertyPath> -->
                             </Collection>
                         </PropertyValue>
                         <PropertyValue Property="TargetEntities">
@@ -2922,7 +2921,6 @@
                         <PropertyValue Property="SourceProperties">
                             <Collection>
                                 <PropertyPath>klart</PropertyPath>
-                                <!-- <PropertyPath>vtwegInput</PropertyPath> -->
                             </Collection>
                         </PropertyValue>
                         <PropertyValue Property="TargetEntities">
@@ -2937,7 +2935,7 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
-            </Annotations>
+            </Annotations> -->
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
