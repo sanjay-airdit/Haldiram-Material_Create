@@ -150,7 +150,8 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
-                <Annotation Term="Common.SideEffects" Qualifier="UOMMARA">
+
+                <!-- <Annotation Term="Common.SideEffects" Qualifier="UOMMARA">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
                             <Collection>
@@ -163,7 +164,8 @@
                             </Collection>
                         </PropertyValue>
                     </Record>
-                </Annotation>
+                </Annotation> -->
+
                 <Annotation Term="Common.SideEffects" Qualifier="SEQFG1">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
@@ -867,17 +869,22 @@
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
                             <Collection>
-                                <PropertyPath>Ausme</PropertyPath>
+                                <PropertyPath>werksInput</PropertyPath>
                             </Collection>
                         </PropertyValue>
-                        <PropertyValue Property="TargetEntities">
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>Prctr</String>
+                            </Collection>
+                        </PropertyValue>
+                        <!-- <PropertyValue Property="TargetEntities">
                             <Collection>
                                 <NavigationPropertyPath>to_material/to_unitofmeasure</NavigationPropertyPath>
                             </Collection>
-                        </PropertyValue>
+                        </PropertyValue> -->
                     </Record>
                 </Annotation>
-                <Annotation Term="Common.SideEffects" Qualifier="UOMMARC2">
+                <!-- <Annotation Term="Common.SideEffects" Qualifier="UOMMARC2">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
                             <Collection>
@@ -890,7 +897,7 @@
                             </Collection>
                         </PropertyValue>
                     </Record>
-                </Annotation>
+                </Annotation> -->
                 <Annotation Term="Common.SideEffects" Qualifier="SEQFG1">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
@@ -2087,7 +2094,7 @@
             <!-- end -->
 
             <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MVKE_MASSREQType">
-                <Annotation Term="Common.SideEffects" Qualifier="UOMMVKE1">
+                <!-- <Annotation Term="Common.SideEffects" Qualifier="UOMMVKE1">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
                             <Collection>
@@ -2100,8 +2107,8 @@
                             </Collection>
                         </PropertyValue>
                     </Record>
-                </Annotation>
-                <Annotation Term="Common.SideEffects" Qualifier="UOMMVKE2">
+                </Annotation> -->
+                <!-- <Annotation Term="Common.SideEffects" Qualifier="UOMMVKE2">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
                             <Collection>
@@ -2114,7 +2121,7 @@
                             </Collection>
                         </PropertyValue>
                     </Record>
-                </Annotation>
+                </Annotation> -->
                 <Annotation Term="Common.SideEffects" Qualifier="SEQFG1">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
@@ -2670,7 +2677,7 @@
                 </Annotation>
             </Annotations>
             <Annotations Target="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MLGN_MASSREQType">
-                <Annotation Term="Common.SideEffects" Qualifier="UOMMLGNBEZME">
+                <!-- <Annotation Term="Common.SideEffects" Qualifier="UOMMLGNBEZME">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
                             <Collection>
@@ -2683,7 +2690,7 @@
                             </Collection>
                         </PropertyValue>
                     </Record>
-                </Annotation>
+                </Annotation> -->
                 <Annotation Term="Common.SideEffects" Qualifier="SEQFG1">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
