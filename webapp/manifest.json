@@ -656,14 +656,6 @@
                   }
                 }
               },
-              "ObjectPage|to_class": {
-                "navigationProperty": "to_class",
-                "entitySet": "ZP_QU_DG_Clasification_massreq",
-                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
-                "component": {
-                  "name": "sap.suite.ui.generic.template.ObjectPage"
-                }
-              },
               "customPage": {
                 "component": {
                   "name": "sap.suite.ui.generic.template.Canvas",
