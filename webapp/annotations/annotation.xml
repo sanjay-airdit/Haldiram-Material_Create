@@ -884,6 +884,20 @@
                         </PropertyValue> -->
                     </Record>
                 </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="UOMMARC2">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>werksInput</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_material/to_valuation</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
                 <!-- <Annotation Term="Common.SideEffects" Qualifier="UOMMARC2">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
