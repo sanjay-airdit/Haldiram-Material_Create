@@ -540,7 +540,7 @@
               "name": "sap.suite.ui.generic.template.ObjectPage",
               "settings": {
                 "sections": {
-                  "MaterialPlant": {
+                  "MaterialPlants": {
                     "navigationProperty": "to_plant",
                     "entitySet": "ZP_QU_DG_MARC_MASSREQ",
                     "createMode": "inline"
@@ -560,7 +560,7 @@
                     "entitySet": "ZP_QU_DG_MARM_MASSREQ",
                     "createMode": "inline"
                   },
-                  "MaterialValuation": {
+                  "MaterialVal": {
                     "navigationProperty": "to_valuation",
                     "entitySet": "ZP_QU_DG_MBEW_MASSREQ",
                     "createMode": "inline"
@@ -587,21 +587,11 @@
                   "name": "sap.suite.ui.generic.template.ObjectPage",
                   "settings": {
                     "sections": {
-                      "MaterialPlant": {
+                      "MaterialPlants": {
                         "navigationProperty": "to_storageloc",
                         "entitySet": "ZP_QU_DG_MARD_MASSREQ",
                         "createMode": "inline"
                       }
-                    }
-                  }
-                },
-                "pages": {
-                  "ObjectPage|to_storageloc": {
-                    "navigationProperty": "to_storageloc",
-                    "entitySet": "ZP_QU_DG_MARD_MASSREQ",
-                    "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
-                    "component": {
-                      "name": "sap.suite.ui.generic.template.ObjectPage"
                     }
                   }
                 }
