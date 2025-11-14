@@ -3,10 +3,10 @@
     xmlns:l="sap.ui.layout"
     xmlns:sform="sap.ui.comp.smartform"
     xmlns:smartField="sap.ui.comp.smartfield">
-    <sform:GroupElement label = "Product Hierarchy" visible="{ui>/editable}">
-            <Input showValueHelp="true" valueHelpRequest="openPHvaluehelp" value="{Prdha}"/>
+    <sform:GroupElement id="idPHIp" label="Product Hierarchy" >
+            <Input required="true" showValueHelp="true" valueHelpRequest="openPHvaluehelp" value="{Prdha}"/>
     </sform:GroupElement>
-    <sform:GroupElement label = "Product Hierarchy" visible="{= ${ui>/editable} !== true }">
-            <Text text="{Prdha}" visible="{= ${ui>/editable} !== true }"/>
+    <sform:GroupElement id="idPHTx" label="Product Hierarchy" >
+            <Text text="{Prdha}" />
     </sform:GroupElement>
 </core:FragmentDefinition>

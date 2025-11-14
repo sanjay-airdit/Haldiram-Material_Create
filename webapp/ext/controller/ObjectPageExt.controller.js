@@ -15,6 +15,9 @@ sap.ui.define([
             //ATTACH CHANGE EVENT TO FIELDS
             this._attachChangeEventToFields();
 
+
+
+
         },
         _onPageDataLoad: function (oEvent) {
             let sObjectPage = this.getView().getBindingContext().getPath().match(/^\/([^(\s]+)/)?.[1]
@@ -106,7 +109,7 @@ sap.ui.define([
             //REBIND THE TABLES
             this.reqType = this.getView().getBindingContext().getProperty("reqtyp")
             const facet = this.byId(`${this.getView().getId()}--template:::ObjectPageSection:::AfterFacetExtensionSectionWithKey:::sFacet::S:::sEntitySet::ZP_QU_DG_MARA_MASSREQ:::sFacetExtensionKey::2`);
-            debugger;
+            // debugger;
             if (facet && this.reqType === "EX") {
                 facet.setVisible(false);
             } else if (!facet) {
@@ -126,8 +129,24 @@ sap.ui.define([
                 this.getView().getModel().attachBatchRequestCompleted(this._onBatchRequestCompletedHandler)
             }.bind(this))
 
+            const { PRDHAHide } = this.getView().getBindingContext().getObject();
+            let { editable } = this.getView().getModel('ui').getData();
+            const inputField = !PRDHAHide && editable;
+            const textField = !PRDHAHide && !editable;
+
+            this.byId("idPHIp").setVisible(false);
+            this.byId("idPHTx").setVisible(false);
+            if (inputField) {
+                this.byId("idPHIp").setVisible(true);
+            }
+            if (textField) {
+                this.byId("idPHTx").setVisible(true);
+            }
+
+
         },
         onAfterRendering: function (oEvent) {
+
             // this.byId('zmaterialcreate.materialcreate::sap.suite.ui.generic.template.ObjectPage.view.Details::ZP_QU_DG_MARA_MASSREQ--attachmentReuseComponent::simple::Attachments::ComponentContainerContent---attachmentService--attachmentTitle').setText('Attachments')
 
         },
