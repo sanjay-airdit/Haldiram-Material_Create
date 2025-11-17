@@ -898,6 +898,20 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="UOMMARC3">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Qmatv</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath></NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
                 <!-- <Annotation Term="Common.SideEffects" Qualifier="UOMMARC2">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
@@ -1977,6 +1991,7 @@
                         <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
                     </Record>
                 </Annotation>
+
                 <Annotation Term="Common.SideEffects" Qualifier="SEQFG5">
                     <Record Type="Common.SideEffectsType">
                         <PropertyValue Property="SourceProperties">
@@ -2070,6 +2085,21 @@
                             </Collection>
                         </PropertyValue>
                         <PropertyValue Property="TriggerAction" String="cds_zp_qu_dg_mara_massreq_srv.ZP_QU_DG_MARA_MASSREQ_BND/MardValidate" />
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="Common.SideEffects" Qualifier="SEQFG10">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>lgortInput</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>to_material/to_plant</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
                     </Record>
                 </Annotation>
             </Annotations>
