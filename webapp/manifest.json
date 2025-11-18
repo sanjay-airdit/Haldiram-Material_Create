@@ -424,12 +424,6 @@
                     "text": "Copy",
                     "press": "onCopy",
                     "requiresSelection": true
-                  },
-                  "idCustomSearch": {
-                    "id": "idCustomSearchButton",
-                    "text": "Classification Search",
-                    "press": "handleCustomSearch",
-                    "global": true
                   }
                 }
               }
@@ -442,14 +436,6 @@
               "className": "sap.ui.core.Fragment",
               "fragmentName": "zmaterialcreate.materialcreate.ext.fragment.EditImage",
               "type": "XML"
-            },
-            "AfterFacet|ZP_QU_DG_MARA_MASSREQ|S|1": {
-              "type": "XML",
-              "className": "sap.ui.core.Fragment",
-              "fragmentName": "zmaterialcreate.materialcreate.ext.fragment.longText",
-              "sap.ui.generic.app": {
-                "title": "Long Texts"
-              }
             },
             "AfterFacet|ZP_QU_DG_MARA_MASSREQ|S|2": {
               "type": "XML",

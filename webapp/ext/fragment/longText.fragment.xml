@@ -3,17 +3,17 @@
     xmlns:form="sap.ui.layout.form">
     <IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding" visible="{= ${KHide} === 'X' ? false : true }">
         <items>
-            <IconTabFilter text="Basic Text" key="BasicText" visible="{= ${KHide} === 'X' ? false : true }">
+            <IconTabFilter text="Basic Text" key="BasicText" visible="false">
                 <VBox >
                     <TextArea growing="true" id="BasicTxt-1" growingMaxLines="7" width="100%" value="{basic_txt}" editable="{LongTextShow}" visible="{= ${reqtyp} === 'EX' ? false : true }"/>
                     <TextArea growing="true" id="BasicTxt-2" growingMaxLines="7" width="100%" value="{basic_longtext}" editable="{LongTextShow}" visible="{= ${reqtyp} === 'EX' ? true : false }"/>
                 </VBox>
             </IconTabFilter>
-            <IconTabFilter text="Sales Text" key="salestext" visible="{= ${VHide} === 'X' ? false : true }">
+            <IconTabFilter text="Sales Text" key="salestext" visible="false">
                 <TextArea growing="true" growingMaxLines="7" width="100%" value="{sales_txt}" editable="{LongTextShow}" />
 
             </IconTabFilter>
-            <IconTabFilter text="Purchasing Text" key="purchasingtext" visible="{= ${EHide} === 'X' ? false : true }">
+            <IconTabFilter text="Purchasing Text" key="purchasingtext" visible="false">
                 <TextArea growing="true" growingMaxLines="7" width="100%" value="{po_txt}" editable="{LongTextShow}" />
 
             </IconTabFilter>
