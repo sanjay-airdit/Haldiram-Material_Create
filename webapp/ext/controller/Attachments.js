@@ -4,11 +4,15 @@ sap.ui.define(["sap/m/MessageBox"], function (MessageBox) {
     return {  
         onBeforeUploadStarts: function (oEvent) {
             let oUploadSet = this.getView().byId("idUploadSet");
-            let sTokenForUpload = this.getOwnerComponent().getModel("CV_ATTACHMENT_SRV").getSecurityToken()
+            let sTokenForUpload = this.getOwnerComponent().getModel("ZQU_DG_DMS_HANDLING_SRV").getSecurityToken()
 
             let oUploadItem = oEvent.getParameter('item')
             let sFileName = oUploadItem.getProperty("fileName");
-            let sReqid = this.getView().getBindingContext().getProperty('Reqid')
+            let sReqid = this.getView().getBindingContext().getProperty('Reqid');
+            let sMatnr = this.getView().getBindingContext().getProperty('Matnr');
+            let sObjid = sMatnr ? sMatnr : "0";
+
+            debugger
 
             //HEADER PARAMETERS
             oUploadSet.addHeaderField(new sap.ui.core.Item({
@@ -17,16 +21,8 @@ sap.ui.define(["sap/m/MessageBox"], function (MessageBox) {
             }))
 
             oUploadSet.addHeaderField(new sap.ui.core.Item({
-                key: "objectkey",
-                text: btoa(`${sReqid}`)
-            }))
-            oUploadSet.addHeaderField(new sap.ui.core.Item({
-                key: "objecttype",
-                text: "BUS1006"
-            }))
-            oUploadSet.addHeaderField(new sap.ui.core.Item({
                 key: "slug",
-                text: btoa(sFileName)
+                text: `${sReqid}|${sObjid}|${sFileName}`
             }))
         },
         onUploadCompleted: function (oEvent) {
@@ -49,8 +45,9 @@ sap.ui.define(["sap/m/MessageBox"], function (MessageBox) {
         onDeleteAttachment: function (oEvent) {
             oEvent.preventDefault();
             let oSelectedItemData = oEvent.getParameter('item').getBindingContext('attachmentDetail').getObject()
-            let oModel = this.getOwnerComponent().getModel("CV_ATTACHMENT_SRV");
-            let sPath = oSelectedItemData.__metadata.uri.split('/CV_ATTACHMENT_SRV')[1];
+            let oModel = this.getOwnerComponent().getModel("ZQU_DG_DMS_HANDLING_SRV");
+            let sPath = oSelectedItemData.__metadata.uri.split('/ZQU_DG_DMS_HANDLING_SRV')[1];
+            // let uPath = sPath.replaceAll("%20", "");
             let sReqid = this.getView().getBindingContext().getProperty('Reqid')
 
             MessageBox.confirm("Are you sure you want to delete this file?", {
@@ -58,10 +55,10 @@ sap.ui.define(["sap/m/MessageBox"], function (MessageBox) {
                 actions: [MessageBox.Action.YES, MessageBox.Action.NO],
                 onClose: function (oAction) {
                     if (oAction === MessageBox.Action.YES) {
+                        debugger
                         oModel.remove(sPath, {
                             headers: {
-                                "objectkey": btoa(sReqid),
-                                "objecttype": "BUS1006"
+                                "reqid": sReqid
                             },
                             success: function () {
                                 this._getattachment();

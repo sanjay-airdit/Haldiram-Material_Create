@@ -84,6 +84,15 @@
           "odataVersion": "2.0"
         }
       },
+      "ZQU_DG_DMS_HANDLING_SRV": {
+        "uri": "/sap/opu/odata/sap/ZQU_DG_DMS_HANDLING_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/ZQU_DG_DMS_HANDLING_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
       "ZC_QU_DG_MATCLASSUNION_CDS": {
         "uri": "/sap/opu/odata/sap/ZC_QU_DG_MATCLASSUNION_CDS/",
         "type": "OData",
@@ -237,6 +246,11 @@
       },
       "ZQU_DG_ATTACHMENT_COMMENT_SRV": {
         "dataSource": "ZQU_DG_ATTACHMENT_COMMENT_SRV",
+        "preload": true,
+        "settings": {}
+      },
+      "ZQU_DG_DMS_HANDLING_SRV": {
+        "dataSource": "ZQU_DG_DMS_HANDLING_SRV",
         "preload": true,
         "settings": {}
       },

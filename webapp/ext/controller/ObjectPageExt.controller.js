@@ -47,8 +47,8 @@ sap.ui.define([
                         this._TopLevelWiid = oItem.TopLevelWorkflowTask;
                         this._Sequence = oItem.sequence;
                         this._ProcessId = oItem.process_id;
-                        this._GetComments(this._TopLevelWiid);
-                        this._ManageBottons();
+                        // this._GetComments(this._TopLevelWiid);
+                        // this._ManageBottons();
                         this._getattachment();
 
                     }.bind(this),
@@ -1224,7 +1224,7 @@ sap.ui.define([
 
                     // Post request for comments
                     let sLoggedInUser = this.getView().getBindingContext().getObject().user_name
-                    let oCommentModel = this.getOwnerComponent().getModel('ZQU_DG_ATTACHMENT_COMMENT_SRV');
+                    let oCommentModel = this.getOwnerComponent().getModel('ZQU_DG_DMS_HANDLING_SRV');
                     let oPayload = {
                         InstanceId: topLevelWiId,
                         Id: "",
@@ -1273,7 +1273,7 @@ sap.ui.define([
         _GetComments: async function (TopLevelWorkItemId) {
             let oCommentLayout = this.getView().byId('id:CommentBox')
             oCommentLayout.setBusy(true)
-            let oCommentModel = this.getOwnerComponent().getModel('ZQU_DG_ATTACHMENT_COMMENT_SRV');
+            let oCommentModel = this.getOwnerComponent().getModel('ZQU_DG_DMS_HANDLING_SRV');
             let aAllCommentsList = [];
 
             // Get comments from local context
@@ -1527,23 +1527,20 @@ sap.ui.define([
                 navCon.back();
             }
         },
-        //   End of code added by Mahesh
+        //   End of code added by Mahe
+        // sh
 
         //___________________________ATTACHMENTS_________________________
         _getattachment: function () {
             let oUploadSet = this.getView().byId("idUploadSet");
             //oUploadSet.setBusy(true);
+            
+            let oModel = this.getOwnerComponent().getModel("ZQU_DG_DMS_HANDLING_SRV");
+            let sReqid = this.getView().getBindingContext().getProperty('Reqid');
+            debugger
 
-            let oModel = this.getOwnerComponent().getModel("CV_ATTACHMENT_SRV");
-            let sReqid = this.getView().getBindingContext().getProperty('Reqid')
-            oModel.read("/GetAllOriginals", {
-                urlParameters: {
-                    "ObjectType": "'BUS1006'",
-                    "ObjectKey": `'${sReqid}'`,
-                    "SemanticObjectType": "''",
-                    "IsDraft": false,
-                    "AttachmentFramework": "''"
-                },
+            oModel.read("/DmsHandlingSet", {
+                filters: [new sap.ui.model.Filter("reqid", "EQ", sReqid)],
                 success: function (oData, oRes) {
                     debugger
                     this.getView().setModel(new sap.ui.model.json.JSONModel(oData.results), "attachmentDetail");
