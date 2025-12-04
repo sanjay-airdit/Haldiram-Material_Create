@@ -1,15 +1,50 @@
-<core:FragmentDefinition xmlns:core="sap.ui.core"
-	xmlns="sap.m"
-	xmlns:l="sap.ui.layout" xmlns:upload="sap.m.upload">
-	<l:VerticalLayout  id="" width="100%" core:require="{handler: 'zmaterialcreate/materialcreate/ext/controller/Attachments'}">
-		<upload:UploadSet  id="idUploadSet" items="{attachmentDetail>/}" instantUpload="true" maxFileSize="200" noDataDescription="" noDataText="" mode="SingleSelectMaster" beforeUploadStarts="handler.onBeforeUploadStarts" selectionChanged="" class="customUploadSet mandatory-upload" uploadCompleted="handler.onUploadCompleted" uploadUrl="/sap/opu/odata/sap/ZQU_DG_DMS_HANDLING_SRV/DmsHandlingSet" fileTypes="png,pdf,jpg,xls,xlsx,docx" >
-			<upload:items>
-				<upload:UploadSetItem url="/sap/opu/odata/sap/ZQU_DG_DMS_HANDLING_SRV/DmsHandlingSet(reqid='{attachmentDetail>reqid}',objid='{attachmentDetail>objid}',dmsid='{attachmentDetail>dmsid}')/$value" openPressed="" visibleRemove="true" visibleEdit="false" selected="false" fileName="{attachmentDetail>filename}" mediaType="{attachmentDetail>mimetype}" removePressed="handler.onDeleteAttachment">
-					<upload:attributes>
-						<ObjectAttribute title="Uploaded by : {attachmentDetail>created_by}" text="{path:'attachmentDetail>created_on',type: 'sap.ui.model.type.Date', formatOptions: {UTC:true}}" active="false"/>
-					</upload:attributes>
-				</upload:UploadSetItem>
-			</upload:items>
-		</upload:UploadSet>
-	</l:VerticalLayout>
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:upload="sap.m.upload"
+>
+    <l:VerticalLayout
+        id=""
+        width="100%"
+        core:require="{handler: 'zmaterialcreate/materialcreate/ext/controller/Attachments'}"
+    >
+        <upload:UploadSet
+            id="idUploadSet"
+            items="{attachmentDetail>/}"
+            instantUpload="true"
+            maxFileSize="200"
+            noDataDescription=""
+            noDataText=""
+            mode="SingleSelectMaster"
+            beforeUploadStarts="handler.onBeforeUploadStarts"
+            selectionChanged=""
+            class="customUploadSet mandatory-upload"
+            uploadCompleted="handler.onUploadCompleted"
+            uploadUrl="/sap/opu/odata/sap/ZQU_DG_DMS_HANDLING_SRV/DmsHandlingSet"
+            fileTypes="png,pdf,jpg,xls,xlsx,docx"
+        >
+            <upload:items>
+                <upload:UploadSetItem
+                    url="/sap/opu/odata/sap/ZQU_DG_DMS_HANDLING_SRV/DmsHandlingSet(reqid='{attachmentDetail>reqid}',objid='{attachmentDetail>objid}',dmsid='{attachmentDetail>dmsid}')/$value"
+                    openPressed=""
+                    visibleRemove="true"
+                    visibleEdit="false"
+                    selected="false"
+                    fileName="{attachmentDetail>filename}"
+                    mediaType="{attachmentDetail>mimetype}"
+                    removePressed="handler.onDeleteAttachment"
+					enabledRemove="{attachmentDelete>/delete}"
+                >
+                    <upload:attributes>
+                        <ObjectAttribute
+                            title="Uploaded by : {attachmentDetail>created_by}"
+                            text="{path:'attachmentDetail>created_on',type: 'sap.ui.model.type.Date', formatOptions: {UTC:true}}"
+                            active="false"
+                        />
+                    </upload:attributes>
+                </upload:UploadSetItem>
+            </upload:items>
+        </upload:UploadSet>
+    </l:VerticalLayout>
 </core:FragmentDefinition>

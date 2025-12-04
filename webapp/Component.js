@@ -12,6 +12,7 @@ sap.ui.define(
                 manifest: "json",
             },
             init: function () {
+                // jQuery("<style>").prop("type", "text/css").html("* {color: red !important;}").appendTo("head");
      
             },
             onStartUpParams: function (data) {

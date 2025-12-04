@@ -107,9 +107,10 @@ sap.ui.define([
             }
 
             //REBIND THE TABLES
-            this.reqType = this.getView().getBindingContext().getProperty("reqtyp")
+            this.reqType = this.getView().getBindingContext().getProperty("reqtyp");
+
             const facet = this.byId(`${this.getView().getId()}--template:::ObjectPageSection:::AfterFacetExtensionSectionWithKey:::sFacet::S:::sEntitySet::ZP_QU_DG_MARA_MASSREQ:::sFacetExtensionKey::2`);
-            // debugger;
+            debugger;
             if (facet && this.reqType === "EX") {
                 facet.setVisible(false);
             } else if (!facet) {
@@ -143,11 +144,28 @@ sap.ui.define([
                 this.byId("idPHTx").setVisible(true);
             }
 
+            this.getView().setModel(new sap.ui.model.json.JSONModel({ delete: true }), "attachmentDelete");
+
+            const oModel = this.getOwnerComponent().getModel("ZC_QU_DG_CATALOG_CONFIG_CDS");
+            oModel.read("/ZC_QU_DG_CATALOG_CONFIG", {
+                success: function (oData) {
+                    debugger
+                    const aAllData = oData.results;
+                    //PROFILE MODEL
+                    this.getView().setModel(new JSONModel({ name: aAllData[0].uname }), 'profileModel')
+
+                }.bind(this),
+
+                error: function () {
+                }.bind(this)
+            });
+
+
 
         },
         onAfterRendering: function (oEvent) {
 
-            // this.byId('zmaterialcreate.materialcreate::sap.suite.ui.generic.template.ObjectPage.view.Details::ZP_QU_DG_MARA_MASSREQ--attachmentReuseComponent::simple::Attachments::ComponentContainerContent---attachmentService--attachmentTitle').setText('Attachments')
+
 
         },
         // onNavigateToMyTask: function (data) {
@@ -1534,16 +1552,30 @@ sap.ui.define([
         _getattachment: function () {
             let oUploadSet = this.getView().byId("idUploadSet");
             //oUploadSet.setBusy(true);
-            
+
             let oModel = this.getOwnerComponent().getModel("ZQU_DG_DMS_HANDLING_SRV");
             let sReqid = this.getView().getBindingContext().getProperty('Reqid');
-            debugger
+            let uReqid = sReqid ? sReqid : ""
+            let sMatnr = this.getView().getBindingContext().getProperty('Matnr');
+            let sObjid = sMatnr ? sMatnr : "0";
+
 
             oModel.read("/DmsHandlingSet", {
-                filters: [new sap.ui.model.Filter("reqid", "EQ", sReqid)],
+                filters: [new sap.ui.model.Filter("reqid", "EQ", uReqid),
+                new sap.ui.model.Filter("objid", "EQ", sObjid)
+                ],
                 success: function (oData, oRes) {
                     debugger
-                    this.getView().setModel(new sap.ui.model.json.JSONModel(oData.results), "attachmentDetail");
+                    const { results } = oData;
+
+                    const { name } = this.getView().getModel("profileModel").getData();
+
+                    const IsActiveEntity = this.getView().getBindingContext().getProperty("IsActiveEntity");
+
+                    if (name.toLowerCase() !== results[0].created_by.toLowerCase() || IsActiveEntity) {
+                        this.getView().setModel(new sap.ui.model.json.JSONModel({ delete: false }), "attachmentDelete");
+                    }
+                    this.getView().setModel(new sap.ui.model.json.JSONModel(results), "attachmentDetail");
                 }.bind(this),
                 error: function (oErr) {
                     debugger

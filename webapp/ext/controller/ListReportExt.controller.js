@@ -271,7 +271,7 @@ sap.ui.define([
             let sTableId = oEvent.getSource().getId()
             if (sTableId === sTable1) {
                 let aColumns = oEvent.getSource()._aColumnKeys
-                let fieldsToShow = ['Reqid', 'reqtyp', 'req_desc', 'reqprio', 'req_created_by', 'req_created_on', 'DraftEntityLastChangeDateTime', 'req_status', 'CreatedAtTime'];
+                let fieldsToShow = ['Reqid', 'maktx', 'reqtyp', 'req_desc', 'reqprio', 'req_created_by', 'req_created_on', 'DraftEntityLastChangeDateTime', 'req_status', 'CreatedAtTime'];
                 let filteredArray = aColumns.filter((field) => {
                     return !fieldsToShow.includes(field)
                 })
